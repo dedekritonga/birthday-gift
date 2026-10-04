@@ -10,16 +10,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="locked">
 
-    <!-- OPENING -->
+    <!-- =========================
+         OPENING
+    ========================== -->
 
     <section class="opening" id="opening">
+
+        <div class="ice-particle particle-1">✦</div>
+        <div class="ice-particle particle-2">✧</div>
+        <div class="ice-particle particle-3">♡</div>
+        <div class="ice-particle particle-4">❄</div>
+        <div class="ice-particle particle-5">✦</div>
+        <div class="ice-particle particle-6">♡</div>
+
+        <div class="opening-glow glow-one"></div>
+        <div class="opening-glow glow-two"></div>
 
         <div class="opening-content">
 
@@ -27,44 +41,188 @@
                 A LITTLE SURPRISE FOR YOU
             </p>
 
-            <div class="envelope">
+            <div class="opening-mini-line">
+                <span></span>
+                <i>♡</i>
+                <span></span>
+            </div>
 
-                <div class="letter">
+            <!-- KUNCI -->
 
-                    <div class="small-heart">
-                        ♡
+            <div class="lock-box" id="lockBox">
+
+                <div class="lock-icon" id="lockIcon">
+                    🔐
+                </div>
+
+                <p class="lock-number" id="lockNumber">
+                    LOCK 01 OF 03
+                </p>
+
+                <h1 id="lockTitle">
+                    Sebelum membuka surat ini...
+                </h1>
+
+                <p class="lock-description" id="lockDescription">
+                    Ada tiga kunci kecil yang harus sayang buka dulu.
+                    <br>
+                    Kalau sayang masih ingat semuanya. 🤭💙
+                </p>
+
+                <div class="question-box" id="questionBox">
+
+                    <p class="question" id="question">
+                        Kapan hari lahir sayangg? 🎂
+                    </p>
+
+                    <div class="date-inputs" id="dateInputs">
+
+                        <div>
+                            <input
+                                type="text"
+                                id="dayInput"
+                                maxlength="2"
+                                inputmode="numeric"
+                                placeholder="DD">
+                            <small>DAY</small>
+                        </div>
+
+                        <span>/</span>
+
+                        <div>
+                            <input
+                                type="text"
+                                id="monthInput"
+                                maxlength="2"
+                                inputmode="numeric"
+                                placeholder="MM">
+                            <small>MONTH</small>
+                        </div>
+
+                        <span>/</span>
+
+                        <div>
+                            <input
+                                type="text"
+                                id="yearInput"
+                                maxlength="4"
+                                inputmode="numeric"
+                                placeholder="YYYY">
+                            <small>YEAR</small>
+                        </div>
+
                     </div>
 
-                    <p class="mini-title">
-                        FOR MY FAVORITE PERSON
-                    </p>
+                    <div
+                        class="text-input-wrapper"
+                        id="textInputWrapper">
 
-                    <h1>
-                        For My
-                        <br>
-                        <span>Sayangg</span> 💙
-                    </h1>
+                        <input
+                            type="text"
+                            id="answerInput"
+                            placeholder="Tulis jawabanmu..."
+                            autocomplete="off">
 
-                    <p class="opening-text">
-                        Bebee punya sesuatu kecil buat kamu.
-                        Ada sedikit cerita, kenangan, dan doa
-                        yang Bebee simpan di sini.
-                    </p>
+                    </div>
 
-                    <button id="openBtn" class="open-btn">
-                        Buka di sini 💌
+                    <button
+                        class="unlock-btn"
+                        id="unlockBtn">
+
+                        🔓 Buka Kunci
+
                     </button>
 
-                    <p class="tap-hint">
-                        tap untuk membuka kejutan ✦
-                    </p>
+                    <p class="wrong-message" id="wrongMessage"></p>
+
+                </div>
+
+            </div>
+
+
+            <!-- SUCCESS -->
+
+            <div class="unlock-success" id="unlockSuccess">
+
+                <div class="success-ring">
+                    <div class="success-icon">
+                        🔓
+                    </div>
+                </div>
+
+                <p id="successSmall">
+                    ONE LITTLE SECRET UNLOCKED
+                </p>
+
+                <h2 id="successTitle">
+                    Kunci terbuka! ✨
+                </h2>
+
+                <p class="success-text" id="successText">
+                    hehe, kamu masih ingat yaa. 💙
+                </p>
+
+                <div class="success-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+            </div>
+
+
+            <!-- ENVELOPE -->
+
+            <div class="final-envelope" id="finalEnvelope">
+
+                <div class="envelope-card">
+
+                    <div class="envelope-shadow"></div>
+
+                    <div class="envelope-flap"></div>
+
+                    <div class="envelope-paper">
+
+                        <div class="small-heart">
+                            ♡
+                        </div>
+
+                        <p class="mini-title">
+                            FOR MY FAVORITE PERSON
+                        </p>
+
+                        <h2>
+                            For My
+                            <br>
+                            <span>Sayangg</span> 💙
+                        </h2>
+
+                        <p>
+                            bebee punya sesuatu kecil buat kamu.
+                            Ada sedikit cerita, kenangan, dan doa
+                            yang bebee simpan di sini.
+                        </p>
+
+                        <button
+                            id="openBtn"
+                            class="open-btn">
+
+                            Buka di sini 💌
+
+                        </button>
+
+                        <p class="tap-hint">
+                            tap untuk membuka kejutan ✦
+                        </p>
+
+                    </div>
 
                 </div>
 
             </div>
 
             <p class="opening-bottom">
-                scroll, smile, and enjoy your little surprise ♡
+                made with love, especially for you ♡
             </p>
 
         </div>
@@ -72,7 +230,9 @@
     </section>
 
 
-    <!-- ISI WEBSITE -->
+    <!-- =========================
+         MAIN WEBSITE
+    ========================== -->
 
     <main id="mainContent">
 
@@ -80,8 +240,17 @@
 
         <section class="section hero">
 
-            <div class="sparkle">
-                ✦
+            <div class="hero-orbit orbit-one">✦</div>
+            <div class="hero-orbit orbit-two">♡</div>
+            <div class="hero-orbit orbit-three">✧</div>
+            <div class="hero-orbit orbit-four">❄</div>
+
+            <div class="hero-sparkles">
+                <span>✦</span>
+                <span>✧</span>
+                <span>♡</span>
+                <span>✦</span>
+                <span>❄</span>
             </div>
 
             <p class="subtitle">
@@ -94,6 +263,24 @@
                 <span>Sayangg</span> 🎂
             </h1>
 
+            <div class="hero-photo-frame">
+
+                <div class="photo-tape"></div>
+
+                <div class="hero-polaroid">
+
+                    <img
+                        src="images/foto12.jpg"
+                        alt="Foto Sayangg">
+
+                    <p>
+                        my favorite person ♡
+                    </p>
+
+                </div>
+
+            </div>
+
             <div class="birthday-date">
                 <span>17</span>
                 <small>OCTOBER</small>
@@ -102,9 +289,9 @@
 
             <p class="hero-text">
                 Hari ini bukan cuma tentang bertambahnya umur kamu.
-                Hari ini juga tentang bersyukurnya Bebee karena
+                Hari ini juga tentang bersyukurnya bebee karena
                 seseorang seperti kamu pernah hadir dan menjadi
-                bagian dari cerita Bebee.
+                bagian dari cerita bebee.
             </p>
 
             <button
@@ -120,9 +307,7 @@
 
         <!-- SURAT -->
 
-        <section
-            class="section letter-section"
-            id="letter">
+        <section class="section letter-section" id="letter">
 
             <p class="section-label">
                 01 — A LETTER FOR YOU
@@ -131,29 +316,31 @@
             <h2>
                 Haiii Sayangg,
                 <br>
-                ini dari <span>Bebee</span> 💙
+                ini dari <span>bebee</span> 💙
             </h2>
 
             <div class="letter-card">
+
+                <div class="paper-decoration">♡</div>
 
                 <p>
                     Selamat ulang tahun yaa Sayangg.
                     Hari ini adalah hari spesial karena tepat pada
                     tanggal 17 Oktober 2005, lahirlah seseorang yang
                     sekarang menjadi salah satu orang paling berarti
-                    buat Bebee.
+                    buat bebee.
                 </p>
 
                 <p>
                     Mungkin kata-kata yang ada di halaman kecil ini
                     nggak akan pernah cukup untuk menjelaskan semuanya.
-                    Tapi setidaknya, lewat website kecil ini Bebee
+                    Tapi setidaknya, lewat website kecil ini bebee
                     mau bilang kalau kehadiran kamu berarti.
                 </p>
 
                 <p>
                     Terima kasih karena sudah menjadi bagian dari
-                    cerita Bebee. Terima kasih untuk semua waktu,
+                    cerita bebee. Terima kasih untuk semua waktu,
                     perhatian, cerita, tawa, dan hal-hal kecil yang
                     mungkin menurut kamu biasa saja.
                 </p>
@@ -189,9 +376,7 @@
 
         <!-- OUR STORY -->
 
-        <section
-            class="section story-section"
-            id="story">
+        <section class="section story-section" id="story">
 
             <p class="section-label">
                 02 — OUR LITTLE STORY
@@ -205,8 +390,8 @@
 
             <p class="story-intro">
                 Kalau ingat awal kita, lucu juga yaa.
-                Semuanya dimulai dari eye contact waktu rapat
-                di Setia Budi. Waktu itu cuma saling lihat sebentar,
+                Semuanya dimulai dari eye contact.
+                Waktu itu cuma saling lihat sebentar,
                 nggak ada yang spesial juga. Tapi ternyata dari
                 momen kecil itu, cerita kita malah berlanjut
                 sampai sekarang.
@@ -214,32 +399,44 @@
 
             <div class="story-card">
 
-                <p>
-                    Terus kita ketemu lagi di KKN Sempajaya.
-                    Awalnya biasa aja, sampai kamu mulai chat aku
-                    lewat sponsor. Dari yang awalnya cuma ngobrol,
-                    lama-lama jadi sering chat dan mulai makin dekat.
-                    Nggak terasa, sekitar dua minggu KKN kita udah
-                    mulai nyaman satu sama lain.
-                </p>
+                <div class="story-line"></div>
 
-                <p>
-                    Aku juga mulai suka sama perhatian kecil kamu.
-                    Waktu aku sakit, kamu beliin obat sama coklat.
-                    Kelihatannya sederhana, tapi aku masih ingat
-                    sampai sekarang.
-                </p>
+                <div class="story-point">
+                    <span>01</span>
+                    <p>
+                        Terus kita ketemu lagi di KKN Sempajaya.
+                        Awalnya biasa aja, sampai kamu mulai chat aku
+                        lewat sponsor. Dari yang awalnya cuma ngobrol,
+                        lama-lama jadi sering chat dan mulai makin dekat.
+                    </p>
+                </div>
 
-                <p>
-                    Terus di akhir KKN, kamu kasih aku fresh flower.
-                    Itu juga jadi salah satu momen yang paling aku suka. 🌷
-                </p>
+                <div class="story-point">
+                    <span>02</span>
+                    <p>
+                        Aku juga mulai suka sama perhatian kecil kamu.
+                        Waktu aku sakit, kamu beliin obat sama coklat.
+                        Kelihatannya sederhana, tapi aku masih ingat
+                        sampai sekarang.
+                    </p>
+                </div>
 
-                <p>
-                    Kalau dipikir-pikir, dari semua kejadian kecil itu,
-                    ternyata aku malah menemukan seseorang yang sekarang
-                    jadi bagian penting dari hidup aku.
-                </p>
+                <div class="story-point">
+                    <span>03</span>
+                    <p>
+                        Terus di akhir KKN, kamu kasih aku fresh flower.
+                        Itu juga jadi salah satu momen yang paling aku suka. 🌷
+                    </p>
+                </div>
+
+                <div class="story-point">
+                    <span>04</span>
+                    <p>
+                        Kalau dipikir-pikir, dari semua kejadian kecil itu,
+                        ternyata aku malah menemukan seseorang yang sekarang
+                        jadi bagian penting dari hidup aku.
+                    </p>
+                </div>
 
                 <p class="story-ending">
                     Dan ternyata, orang itu kamu, sayangg. ♡
@@ -250,14 +447,94 @@
         </section>
 
 
-        <!-- THINGS I LOVE ABOUT YOU -->
+        <!-- LITTLE THINGS -->
 
-        <section
-            class="section love-section"
-            id="love">
+        <section class="section little-things-section" id="littleThings">
 
             <p class="section-label">
-                03 — THINGS I LOVE ABOUT YOU
+                03 — LITTLE THINGS I REMEMBER
+            </p>
+
+            <h2>
+                Hal-hal kecil
+                <br>
+                yang <span>aku ingat.</span> ♡
+            </h2>
+
+            <p class="little-intro">
+                Mungkin buat sayangg beberapa hal ini sederhana.
+                Tapi entah kenapa, justru hal-hal kecil seperti ini
+                yang masih tinggal di ingatan bebee.
+            </p>
+
+            <div class="memory-notes">
+
+                <button class="memory-note" onclick="openMemoryNote(0)">
+                    <span>01</span>
+                    <strong>The First Look</strong>
+                    <small>tap to open ♡</small>
+                </button>
+
+                <button class="memory-note" onclick="openMemoryNote(1)">
+                    <span>02</span>
+                    <strong>The First Message</strong>
+                    <small>tap to open ♡</small>
+                </button>
+
+                <button class="memory-note" onclick="openMemoryNote(2)">
+                    <span>03</span>
+                    <strong>When I Was Sick</strong>
+                    <small>tap to open ♡</small>
+                </button>
+
+                <button class="memory-note" onclick="openMemoryNote(3)">
+                    <span>04</span>
+                    <strong>Chocolate</strong>
+                    <small>tap to open ♡</small>
+                </button>
+
+                <button class="memory-note flower-note" onclick="openMemoryNote(4)">
+                    <span>05</span>
+                    <strong>Fresh Flowers</strong>
+                    <small>tap to open ♡</small>
+                </button>
+
+            </div>
+
+            <div class="memory-note-result" id="memoryNoteResult">
+
+                <button
+                    class="close-note"
+                    onclick="closeMemoryNote()">
+                    ×
+                </button>
+
+                <div class="note-number" id="noteNumber">
+                    01
+                </div>
+
+                <h3 id="noteTitle">
+                    The First Look
+                </h3>
+
+                <p id="noteText">
+                    Ada sebuah momen kecil yang sampai sekarang
+                    masih aku ingat.
+                </p>
+
+                <div class="note-heart">♡</div>
+
+            </div>
+
+        </section>
+
+
+        <!-- LOVE -->
+
+        <section class="section love-section" id="love">
+
+            <p class="section-label">
+                04 — THINGS I LOVE ABOUT YOU
             </p>
 
             <h2>
@@ -274,81 +551,80 @@
 
             <div class="love-container">
 
-                <div class="love-card">
+                <button class="love-card" onclick="openLoveCard(this)">
 
-                    <div class="love-icon">
-                        ♡
+                    <div class="love-card-front">
+                        <div class="love-icon">♡</div>
+                        <h3>Perhatian kecil kamu</h3>
+                        <span>tap me ✦</span>
                     </div>
 
-                    <h3>
-                        Perhatian kecil kamu
-                    </h3>
-
-                    <p>
-                        Aku suka cara kamu perhatian sama aku,
-                        bahkan dari hal-hal kecil yang kadang
-                        mungkin nggak kamu anggap penting.
-                    </p>
-
-                </div>
-
-
-                <div class="love-card">
-
-                    <div class="love-icon">
-                        ♡
+                    <div class="love-card-back">
+                        <p>
+                            bebee suka cara sayangg perhatian sama bebee,
+                            bahkan dari hal-hal kecil yang kadang
+                            mungkin nggak sayangg anggap penting.
+                        </p>
                     </div>
 
-                    <h3>
-                        Kamu bikin aku nyaman
-                    </h3>
-
-                    <p>
-                        Sama kamu aku bisa jadi diri sendiri.
-                        Bisa cerita, bisa manja, bisa ngeluh,
-                        bahkan bisa random tanpa takut di-judge.
-                    </p>
-
-                </div>
+                </button>
 
 
-                <div class="love-card">
+                <button class="love-card" onclick="openLoveCard(this)">
 
-                    <div class="love-icon">
-                        ♡
+                    <div class="love-card-front">
+                        <div class="love-icon">♡</div>
+                        <h3>Kamu bikin aku nyaman</h3>
+                        <span>tap me ✦</span>
                     </div>
 
-                    <h3>
-                        Cara kamu memperlakukan aku
-                    </h3>
-
-                    <p>
-                        Ada banyak hal kecil dari cara kamu
-                        memperlakukan aku yang bikin aku merasa
-                        dihargai dan disayang.
-                    </p>
-
-                </div>
-
-
-                <div class="love-card">
-
-                    <div class="love-icon">
-                        ♡
+                    <div class="love-card-back">
+                        <p>
+                            Sama sayangg bebee bisa jadi diri sendiri.
+                            Bisa cerita, bisa manja, bisa ngeluh,
+                            bahkan bisa random tanpa takut di-judge.
+                        </p>
                     </div>
 
-                    <h3>
-                        Karena kamu yaa kamu
-                    </h3>
+                </button>
 
-                    <p>
-                        Mungkin kedengarannya sederhana,
-                        tapi aku sayang kamu bukan karena kamu
-                        harus jadi seseorang yang sempurna.
-                        Aku sayang kamu karena kamu adalah kamu.
-                    </p>
 
-                </div>
+                <button class="love-card" onclick="openLoveCard(this)">
+
+                    <div class="love-card-front">
+                        <div class="love-icon">♡</div>
+                        <h3>Cara kamu memperlakukan aku</h3>
+                        <span>tap me ✦</span>
+                    </div>
+
+                    <div class="love-card-back">
+                        <p>
+                            Ada banyak hal kecil dari cara sayangg
+                            memperlakukan bebee yang buat bebee merasa
+                            dihargai dan disayang.
+                        </p>
+                    </div>
+
+                </button>
+
+
+                <button class="love-card" onclick="openLoveCard(this)">
+
+                    <div class="love-card-front">
+                        <div class="love-icon">♡</div>
+                        <h3>Karena kamu yaa kamu</h3>
+                        <span>tap me ✦</span>
+                    </div>
+
+                    <div class="love-card-back">
+                        <p>
+                            Aku sayang kamu bukan karena kamu harus
+                            jadi seseorang yang sempurna.
+                            Aku sayang kamu karena kamu adalah kamu.
+                        </p>
+                    </div>
+
+                </button>
 
             </div>
 
@@ -367,14 +643,12 @@
         </section>
 
 
-        <!-- OUR LITTLE MEMORIES -->
+        <!-- MEMORIES -->
 
-        <section
-            class="section memories-section"
-            id="memories">
+        <section class="section memories-section" id="memories">
 
             <p class="section-label">
-                04 — OUR LITTLE MEMORIES
+                05 — OUR LITTLE MEMORIES
             </p>
 
             <h2>
@@ -415,14 +689,14 @@
         </section>
 
 
-        <!-- PHOTO ALBUM -->
+        <!-- GALLERY -->
 
         <section
             class="section gallery-section"
             id="gallery">
 
             <p class="section-label">
-                05 — OUR PHOTO ALBUM
+                06 — OUR PHOTO ALBUM
             </p>
 
             <h2>
@@ -448,12 +722,10 @@
 
         <!-- WHY YOU -->
 
-        <section
-            class="section reasons-section"
-            id="reasons">
+        <section class="section reasons-section" id="reasons">
 
             <p class="section-label">
-                06 — WHY YOU
+                07 — WHY YOU
             </p>
 
             <h2>
@@ -465,7 +737,6 @@
             <div class="reason-container">
 
                 <div class="reason">
-
                     <span>01</span>
 
                     <h3>
@@ -478,12 +749,9 @@
                         Justru menjadi diri kamu sendiri adalah
                         salah satu hal yang Bebee suka.
                     </p>
-
                 </div>
 
-
                 <div class="reason">
-
                     <span>02</span>
 
                     <h3>
@@ -495,12 +763,9 @@
                         cara kamu berbicara, semuanya punya tempat
                         sendiri di ingatan Bebee.
                     </p>
-
                 </div>
 
-
                 <div class="reason">
-
                     <span>03</span>
 
                     <h3>
@@ -512,7 +777,6 @@
                         datang, entah bagaimana ceritanya membawa
                         kita sampai di sini.
                     </p>
-
                 </div>
 
             </div>
@@ -520,11 +784,65 @@
         </section>
 
 
-        <!-- MY WISH -->
+        <!-- SPECIAL FLOWER -->
 
-        <section
-            class="section wish-section"
-            id="wish">
+        <section class="section flower-section" id="flower">
+
+            <div class="flower-content">
+
+                <p class="section-label">
+                    08 — ONE MEMORY I KEEP CLOSE
+                </p>
+
+                <div class="flower-symbol">
+                    🌷
+                </div>
+
+                <p class="flower-small">
+                    SOME MEMORIES JUST STAY
+                </p>
+
+                <h2>
+                    Tentang bunga
+                    <br>
+                    yang <span>masih aku ingat.</span>
+                </h2>
+
+                <div class="flower-photo-frame">
+
+                    <div class="flower-photo-tape"></div>
+
+                    <img
+                        src="images/foto19.jpg"
+                        alt="Kenangan">
+
+                </div>
+
+                <p class="flower-text">
+                    Di akhir KKN, kamu kasih aku fresh flower.
+                    Sederhana memang, tapi sampai sekarang momen itu
+                    masih punya tempat sendiri di ingatan aku.
+                </p>
+
+                <p class="flower-text">
+                    Mungkin bukan tentang bunganya saja.
+                    Tapi tentang siapa yang memberikan,
+                    kapan itu terjadi, dan perasaan yang muncul
+                    di balik momen kecil itu.
+                </p>
+
+                <div class="flower-quote">
+                    “Some little moments become big memories.”
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- WISH -->
+
+        <section class="section wish-section" id="wish">
 
             <div class="wish-box">
 
@@ -533,7 +851,7 @@
                 </div>
 
                 <p class="section-label">
-                    07 — MY WISH FOR YOU
+                    09 — MY WISH FOR YOU
                 </p>
 
                 <h2>
@@ -543,14 +861,14 @@
                 </h2>
 
                 <p>
-                    Semoga kamu selalu sehat.
-                    Semoga langkah kamu dimudahkan.
-                    Semoga apa pun yang sedang kamu perjuangkan
+                    Semoga sayangg selalu sehat.
+                    Semoga langkah sayangg dimudahkan.
+                    Semoga apa pun yang sedang sayangg perjuangkan
                     bisa menemukan jalannya.
                 </p>
 
                 <p>
-                    Semoga kamu dikelilingi orang-orang yang tulus,
+                    Semoga sayangg dikelilingi orang-orang yang tulus,
                     diberi banyak kesempatan baik, dan selalu
                     menemukan alasan untuk bahagia.
                 </p>
@@ -561,10 +879,66 @@
                 </p>
 
                 <p>
-                    Dan kalau suatu hari nanti kamu merasa dunia
-                    sedang terlalu berat, semoga kamu ingat bahwa
-                    ada seseorang yang selalu mendoakan kamu.
+                    Dan kalau suatu hari nanti sayangg merasa dunia
+                    sedang terlalu berat, semoga sayangg ingat bahwa
+                    ada seseorang yang selalu mendoakan sayangg.
                 </p>
+
+                <div class="wish-interaction">
+
+    <p>
+        Sekarang giliran sayangg buat satu harapan.
+    </p>
+
+    <!-- KUE DAN LILIN -->
+
+    <div class="wish-cake">
+
+        <div class="candle">
+
+            <div
+                class="flame"
+                id="wishFlame">
+            </div>
+
+        </div>
+
+        <div class="cake-top"></div>
+
+        <div class="cake-body">
+
+            <div class="cake-cream"></div>
+
+            <div class="cake-cream second"></div>
+
+        </div>
+
+                </div>
+
+                <button
+                    class="wish-button"
+                    onclick="makeWish()">
+
+                    ✨ Make a Wish
+
+                </button>
+
+                <div
+                    class="wish-result"
+                    id="wishResult">
+
+                    <span>✦</span>
+
+                    <p>
+                        Semoga harapan sayangg menemukan
+                        jalannya satu per satu. 🤍
+                    </p>
+
+                </div>
+
+            </div>
+
+                </div>
 
                 <div class="wish-heart">
                     ♡
@@ -575,67 +949,202 @@
         </section>
 
 
-        <!-- FINAL -->
+        <!-- FINAL GIFT -->
 
-        <section
-            class="section final-section"
-            id="final">
+        <section class="section gift-section" id="gift">
 
-            <div class="final-content">
+            <div class="gift-content">
 
                 <p class="section-label">
-                    08 — ONE LAST THING
+                    10 — ONE LAST THING
                 </p>
-
-                <div class="big-heart">
-                    ♥
-                </div>
 
                 <h2>
-                    Thank you for
+                    Sebelum semuanya
                     <br>
-                    being <span>you.</span>
+                    <span>selesai...</span>
                 </h2>
 
-                <p>
-                    Terima kasih sudah hadir.
-                    Terima kasih sudah menjadi bagian dari
-                    cerita Bebee.
+                <p class="gift-intro">
+                    Masih ada satu hadiah kecil lagi.
+                    Bukan sesuatu yang bisa dibungkus,
+                    tapi mungkin sesuatu yang bisa sayangg simpan.
                 </p>
 
-                <p>
-                    Terima kasih untuk semua kenangan
-                    yang sudah kita buat sampai hari ini.
-                </p>
+                <button
+                    class="gift-box-button"
+                    id="giftBoxButton"
+                    onclick="openFinalGift()">
 
-                <p>
-                    Selamat ulang tahun, Sayangg.
-                </p>
+                    <div class="gift-box">
+                        <div class="gift-lid"></div>
+                        <div class="gift-body"></div>
+                        <div class="gift-ribbon vertical"></div>
+                        <div class="gift-ribbon horizontal"></div>
+                    </div>
 
-                <h3>
-                    I love you 💙
-                </h3>
+                    <span>
+                        Open your last gift 🎁
+                    </span>
 
-                <p class="small-note">
-                    — from Bebee, with love.
-                </p>
+                </button>
+
+                <div
+                    class="final-gift-message"
+                    id="finalGiftMessage">
+
+                    <div class="gift-sparkle">✦</div>
+
+                    <p class="gift-small">
+                        FOR MY SAYANGG
+                    </p>
+
+                    <h3>
+                        Happy Birthday,
+                        <br>
+                        Sayangg. 🤍
+                    </h3>
+
+                    <p>
+                        "selamat tiba di usia yang baru",
+                        semoga hidup selalu menitipkan hal-hal baik di sepanjang jalan sayangg.
+                        semoga setiap langkah yang sayangg tempuh memebawa sayangg lebih dekat pada apa-apa yang selama ini sayangg doakan,
+                        teruslah bertumbuh, meski perjalanan sayangg kelak membawa ke tempat-tempat yang baru sayangg kenal.
+                        semoga setiap proses yang sayang lalui perlahan membentuk sayangg menjadi seseorang
+                        yang kelak sayangg banggakan tanpa harus tergesa-gesa menjadi siapa-siapa.
+                        semoga ALLAH senantiasa menjaga senyum, melapangkan hati sayangg,
+                        dan menjauhkan sayangg dari segala hal yang membuat sayangg kehilanngan 
+                        keduanya.
+                        semoga di mana pun langkah sayangg berlabuh, 
+                        sayangg selalu menemukan alasan 
+                        untuk bail-baik saja.
+                    </p>
+
+                    <p>
+                        Terima kasih sudah hadir dan menjadi
+                        bagian dari cerita bebee.
+                    </p>
+
+                    <p class="gift-final-line">
+                        I hope we make many more memories together. ♡
+                    </p>
+
+                </div>
 
             </div>
 
         </section>
 
 
-        <!-- FOOTER -->
+        <!-- FINAL -->
 
-        <footer>
+<section class="section final-section" id="final">
+
+    <div class="final-stars">
+        <span>✦</span>
+        <span>✧</span>
+        <span>♡</span>
+        <span>✦</span>
+        <span>❄</span>
+    </div>
+
+    <div class="final-content">
+
+        <p class="section-label">
+            11 — UNTIL THE NEXT CHAPTER
+        </p>
+
+        <div class="big-heart">
+            ♥
+        </div>
+
+        <h2>
+            Thank you for
+            <br>
+            being <span>you.</span>
+        </h2>
+
+        <p>
+            Terima kasih sudah hadir.
+            Terima kasih sudah menjadi bagian dari
+            cerita bebee.
+        </p>
+
+        <p>
+            Terima kasih untuk semua kenangan
+            yang sudah kita buat sampai hari ini.
+        </p>
+
+        <p>
+            Selamat ulang tahun, Sayangg.
+        </p>
+
+        <h3>
+            I love you 💙
+        </h3>
+
+        <p class="small-note">
+            — from bebee, with love.
+        </p>
+
+        <button
+            class="final-message-button"
+            onclick="openFinalMessage()">
+
+            💌 One Last Message
+
+        </button>
+
+       <div
+            class="final-message"
+            id="finalMessage"
+            style="display: none;">
+
+            <div class="final-message-heart">
+                ♡
+            </div>
 
             <p>
-                Made with love by Bebee 💙
+                Kalau sayangg sampai di bagian ini,
+                berarti sayangg sudah melihat semuanya.
             </p>
 
             <p>
-                17 • 10 • 2005
+                Tapi sebenarnya masih ada satu hal
+                yang paling ingin Bebee bilang.
             </p>
+
+            <p>
+                Dari semua foto, cerita, dan kenangan
+                yang ada di sini, bagian paling indahnya
+                bukan cuma tentang apa yang sudah kita lalui.
+            </p>
+
+            <p>
+                Tapi tentang kamu yang sekarang ada
+                di dalam hidup bebee.
+            </p>
+
+            <p class="final-last-line">
+                Semoga di umur yang baru ini,
+                sayangg selalu punya alasan untuk tersenyum.
+                Dan semoga kita masih punya banyak
+                cerita untuk ditulis setelah ini. 🤍
+            </p>
+
+            <div class="final-signature">
+                sayangg, always. 💙
+            </div>
+
+        </div>
+
+        <div class="final-date">
+            17 • 10 • 2005
+        </div>
+
+    </div>
+
+</section>
 
         </footer>
 
@@ -660,6 +1169,42 @@
             id="bigPhoto"
             src=""
             alt="Foto kenangan">
+
+    </div>
+
+
+    <!-- MEMORY NOTE MODAL -->
+
+    <div
+        class="memory-note-modal"
+        id="memoryNoteModal">
+
+        <div class="memory-note-modal-card">
+
+            <button
+                class="close-note-modal"
+                onclick="closeMemoryNote()">
+                ×
+            </button>
+
+            <div class="modal-flower">
+                ♡
+            </div>
+
+            <p id="modalNoteNumber">
+                01
+            </p>
+
+            <h3 id="modalNoteTitle">
+                The First Look
+            </h3>
+
+            <p id="modalNoteText">
+                Ada sebuah momen kecil yang sampai sekarang
+                masih bebee ingat.
+            </p>
+
+        </div>
 
     </div>
 
