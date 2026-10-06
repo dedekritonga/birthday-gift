@@ -1255,6 +1255,7 @@ h2 span {
 .gallery-section {
     background: var(--cream);
     align-items: center;
+    overflow: hidden;
 }
 
 .gallery-section h2 {
@@ -1273,34 +1274,67 @@ h2 span {
 .gallery {
     width: min(100%, 950px);
     columns: 4 180px;
-    column-gap: 18px;
+    column-gap: 22px;
 }
 
 .gallery-item {
     break-inside: avoid;
-    margin-bottom: 18px;
+    margin-bottom: 22px;
     overflow: hidden;
-    background: white;
-    padding: 7px;
-    box-shadow: 0 12px 30px rgba(67,133,160,.12);
-    transition: .3s ease;
-}
 
-.gallery-item:hover {
-    transform: translateY(-5px) rotate(0) scale(1.01);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 9px;
+
+    border-radius: 3px;
+
+    box-shadow:
+        0 15px 35px rgba(67, 133, 160, 0.15);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
 }
 
 .gallery-item:nth-child(3n) {
-    transform: rotate(1.5deg);
+    transform: rotate(1.8deg);
 }
 
 .gallery-item:nth-child(3n + 1) {
-    transform: rotate(-1deg);
+    transform: rotate(-1.5deg);
+}
+
+.gallery-item:nth-child(3n + 2) {
+    transform: rotate(0.7deg);
+}
+
+.gallery-item:hover {
+    transform:
+        translateY(-8px)
+        rotate(0deg)
+        scale(1.03);
+
+    box-shadow:
+        0 20px 45px rgba(67, 133, 160, 0.22);
+
+    position: relative;
+    z-index: 5;
 }
 
 .gallery-item img {
     width: 100%;
     display: block;
+
+    border-radius: 2px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.4s ease,
+        filter 0.4s ease;
+}
+
+.gallery-item:hover img {
+    filter: brightness(1.04);
 }
 
 /* =========================
@@ -2216,6 +2250,7 @@ footer p:first-child {
     .memory-note-modal-card {
         padding: 45px 25px;
     }
+}
 /* =========================
    WISH CAKE & CANDLE
 ========================= */
@@ -2447,4 +2482,779 @@ footer p:first-child {
     }
 
 }
+/* =========================
+   PAGE BY PAGE NAVIGATION
+========================= */
+
+.story-page {
+    display: none !important;
+    min-height: 100vh;
+}
+
+.story-page.active-page {
+    display: flex !important;
+    animation: pageFadeIn 0.8s ease;
+}
+
+.page-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 50px auto 0;
+    width: 100%;
+}
+
+.page-next-btn,
+.page-back-btn {
+    padding: 13px 28px;
+    border: 1px solid rgba(91, 141, 184, 0.35);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.85);
+    color: #527fa5;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px rgba(70, 130, 180, 0.12);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+.page-next-btn:hover,
+.page-back-btn:hover {
+    transform: translateY(-3px);
+
+    background: rgba(255, 255, 255, 1);
+
+    box-shadow:
+        0 12px 30px rgba(70, 130, 180, 0.2);
+}
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.story-progress {
+    position: fixed;
+    top: 28px;
+    right: 8%;
+    z-index: 1000;
+
+    padding: 8px 16px;
+
+    border: 1px solid rgba(91, 141, 184, 0.25);
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(10px);
+
+    color: #527fa5;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+
+    box-shadow:
+        0 6px 20px rgba(70, 130, 180, 0.1);
+
+    transition: all 0.4s ease;
+}
+@media (max-width: 500px) {
+
+    .story-progress {
+        top: 18px;
+        right: 6%;
+        padding: 7px 13px;
+        font-size: 10px;
+    }
+
+}
+@media (max-width: 500px) {
+
+    .page-navigation {
+        gap: 10px;
+        margin-top: 35px;
+    }
+
+    .page-next-btn,
+    .page-back-btn {
+        padding: 11px 21px;
+        font-size: 12px;
+    }
+}
+
+.falling-flowers {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.flower-content {
+    position: relative;
+    z-index: 2;
+}
+
+.falling-flower {
+    position: absolute;
+    top: -40px;
+    font-size: 20px;
+    opacity: 0.75;
+    animation: flowerFall linear infinite;
+    user-select: none;
+}
+
+@keyframes flowerFall {
+
+    0% {
+        transform: translateY(-40px) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.75;
+    }
+
+    90% {
+        opacity: 0.75;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+
+}
+/* =========================================
+   GLOBAL PAGE SPARKLES
+========================================= */
+
+.page-sparkles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.page-sparkle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+
+    box-shadow:
+        0 0 8px rgba(150, 210, 255, 0.8),
+        0 0 16px rgba(150, 210, 255, 0.4);
+
+    animation: sparkleTwinkle 3s ease-in-out infinite;
+}
+
+@keyframes sparkleTwinkle {
+
+    0%,
+    100% {
+        opacity: 0.15;
+        transform: scale(0.7);
+    }
+
+    50% {
+        opacity: 0.9;
+        transform: scale(1.3);
+    }
+
+}
+/* =========================================
+   BIRTHDAY CAKE
+========================================= */
+
+.birthday-cake {
+    position: relative;
+    width: 190px;
+    height: 150px;
+    margin: 0 auto 35px;
+    z-index: 2;
+}
+
+/* CAKE BODY */
+
+.cake-body {
+    position: absolute;
+    left: 15px;
+    bottom: 5px;
+    width: 160px;
+    height: 70px;
+
+    background: linear-gradient(
+        to bottom,
+        #dff3ff,
+        #9fd3ef
+    );
+
+    border-radius: 12px 12px 18px 18px;
+
+    box-shadow:
+        0 15px 30px rgba(70, 140, 180, 0.2);
+}
+
+/* CAKE TOP */
+
+.cake-top {
+    position: absolute;
+    left: 10px;
+    bottom: 60px;
+    width: 170px;
+    height: 35px;
+
+    background: #edf9ff;
+
+    border-radius: 50%;
+
+    box-shadow:
+        inset 0 -5px 0 rgba(130, 190, 225, 0.35);
+}
+
+/* CAKE DECORATION */
+
+.cake-decoration {
+    position: absolute;
+    left: 30px;
+    bottom: 25px;
+    width: 130px;
+
+    display: flex;
+    justify-content: space-around;
+
+    color: white;
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+/* CANDLES */
+
+.candles {
+    position: absolute;
+    left: 50%;
+    bottom: 82px;
+
+    display: flex;
+    gap: 18px;
+
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+.candle {
+    position: relative;
+    width: 10px;
+    height: 38px;
+
+    border-radius: 4px;
+
+    background: linear-gradient(
+        to right,
+        #ffffff,
+        #b9e3f7
+    );
+
+    box-shadow:
+        0 4px 8px rgba(70, 140, 180, 0.15);
+}
+
+/* FLAME */
+
+.flame {
+    position: absolute;
+    left: 50%;
+    top: -17px;
+
+    width: 11px;
+    height: 17px;
+
+    background: #fff4b8;
+
+    border-radius:
+        50% 50% 50% 50% /
+        60% 60% 40% 40%;
+
+    transform:
+        translateX(-50%)
+        rotate(45deg);
+
+    box-shadow:
+        0 0 8px rgba(255, 220, 100, 0.8),
+        0 0 18px rgba(255, 220, 100, 0.5);
+
+    animation: candleFlame 1s ease-in-out infinite alternate;
+}
+
+@keyframes candleFlame {
+
+    from {
+        transform:
+            translateX(-50%)
+            rotate(40deg)
+            scale(0.9);
+    }
+
+    to {
+        transform:
+            translateX(-50%)
+            rotate(50deg)
+            scale(1.1);
+    }
+
+}
+/* =========================================
+   GLOBAL ROMANTIC DECORATIONS
+========================================= */
+
+.story-page {
+    overflow: hidden;
+}
+
+/* =========================================
+   SPARKLES
+========================================= */
+
+.page-sparkles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.page-sparkle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    box-shadow:
+        0 0 8px rgba(150, 210, 255, 0.9),
+        0 0 18px rgba(150, 210, 255, 0.5);
+
+    animation:
+        sparkleTwinkle
+        3s ease-in-out infinite;
+}
+
+@keyframes sparkleTwinkle {
+
+    0%,
+    100% {
+        opacity: 0.15;
+        transform: scale(0.6);
+    }
+
+    50% {
+        opacity: 0.9;
+        transform: scale(1.3);
+    }
+
+}
+
+
+/* =========================================
+   FLOATING HEARTS
+========================================= */
+
+.page-hearts {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.page-heart {
+    position: absolute;
+
+    color: rgba(125, 181, 218, 0.35);
+
+    font-size: 18px;
+
+    animation:
+        heartFloat
+        7s ease-in-out infinite;
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(130, 200, 240, 0.35)
+        );
+}
+
+@keyframes heartFloat {
+
+    0% {
+        opacity: 0;
+        transform:
+            translateY(30px)
+            scale(0.7)
+            rotate(-10deg);
+    }
+
+    15% {
+        opacity: 0.55;
+    }
+
+    50% {
+        transform:
+            translateY(-40px)
+            scale(1)
+            rotate(8deg);
+    }
+
+    85% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translateY(-100px)
+            scale(0.7)
+            rotate(-8deg);
+    }
+
+}
+
+
+/* =========================================
+   BIRTHDAY CAKE
+========================================= */
+
+.birthday-cake {
+    position: absolute;
+
+    right: 6%;
+    bottom: 7%;
+
+    width: 125px;
+    height: 105px;
+
+    pointer-events: none;
+
+    z-index: 2;
+
+    opacity: 0.9;
+}
+
+
+/* CAKE BODY */
+
+.cake-body {
+    position: absolute;
+
+    left: 10px;
+    bottom: 5px;
+
+    width: 105px;
+    height: 48px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #e8f7ff,
+            #a8d7ef
+        );
+
+    border-radius:
+        10px 10px 15px 15px;
+
+    box-shadow:
+        0 10px 25px
+        rgba(70, 140, 180, 0.18);
+}
+
+
+/* CAKE TOP */
+
+.cake-top {
+    position: absolute;
+
+    left: 6px;
+    bottom: 42px;
+
+    width: 113px;
+    height: 27px;
+
+    background: #f5fbff;
+
+    border-radius: 50%;
+
+    box-shadow:
+        inset 0 -4px 0
+        rgba(130, 190, 225, 0.3);
+}
+
+
+/* CAKE DECORATION */
+
+.cake-decoration {
+    position: absolute;
+
+    left: 22px;
+    bottom: 17px;
+
+    width: 82px;
+
+    display: flex;
+    justify-content: space-around;
+
+    color: white;
+
+    font-size: 13px;
+}
+
+
+/* CANDLES */
+
+.candles {
+    position: absolute;
+
+    left: 50%;
+    bottom: 65px;
+
+    display: flex;
+
+    gap: 13px;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 3;
+}
+
+.candle {
+    position: relative;
+
+    width: 7px;
+    height: 25px;
+
+    border-radius: 3px;
+
+    background:
+        linear-gradient(
+            to right,
+            #ffffff,
+            #b8e1f5
+        );
+
+    box-shadow:
+        0 3px 7px
+        rgba(70, 140, 180, 0.15);
+}
+
+
+/* FLAME */
+
+.flame {
+    position: absolute;
+
+    left: 50%;
+    top: -13px;
+
+    width: 8px;
+    height: 13px;
+
+    background: #fff3a8;
+
+    border-radius:
+        50% 50% 50% 50% /
+        65% 65% 35% 35%;
+
+    transform:
+        translateX(-50%)
+        rotate(45deg);
+
+    box-shadow:
+        0 0 7px
+        rgba(255, 220, 100, 0.9),
+
+        0 0 15px
+        rgba(255, 220, 100, 0.5);
+
+    animation:
+        candleFlame
+        0.9s ease-in-out infinite alternate;
+}
+
+@keyframes candleFlame {
+
+    from {
+        transform:
+            translateX(-50%)
+            rotate(40deg)
+            scale(0.85);
+    }
+
+    to {
+        transform:
+            translateX(-50%)
+            rotate(50deg)
+            scale(1.15);
+    }
+
+}
+
+
+/* CAKE GLOW */
+
+.cake-glow {
+    position: absolute;
+
+    left: 50%;
+    bottom: 20px;
+
+    width: 120px;
+    height: 60px;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        rgba(140, 210, 245, 0.2);
+
+    filter: blur(20px);
+
+    border-radius: 50%;
+
+    z-index: -1;
+}
+
+
+/* =========================================
+   SPECIAL LOVE PAGE
+========================================= */
+
+.love-section .page-heart {
+    color:
+        rgba(112, 168, 210, 0.5);
+
+    font-size: 22px;
+
+    filter:
+        drop-shadow(
+            0 0 10px
+            rgba(120, 200, 245, 0.45)
+        );
+}
+
+
+/* =========================================
+   SPECIAL WISH PAGE
+========================================= */
+
+.wish-section .birthday-cake {
+
+    width: 155px;
+    height: 130px;
+
+    right: 7%;
+    bottom: 5%;
+
+    transform: scale(1.05);
+
+}
+
+
+/* =========================================
+   FINAL PAGE
+========================================= */
+
+.final-section .page-heart {
+
+    color:
+        rgba(120, 180, 220, 0.45);
+
+    font-size: 21px;
+}
+
+.final-section .birthday-cake {
+
+    opacity: 0.85;
+
+}
+
+
+/* =========================================
+   GALLERY
+========================================= */
+
+.gallery-section .page-sparkle {
+
+    width: 4px;
+    height: 4px;
+
+    opacity: 0.45;
+
+}
+
+
+/* =========================================
+   FRESH FLOWERS
+========================================= */
+
+.flower-section .page-hearts {
+
+    opacity: 0.35;
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .page-sparkle {
+        width: 4px;
+        height: 4px;
+    }
+
+    .page-heart {
+        font-size: 14px;
+    }
+
+    .birthday-cake {
+
+        width: 95px;
+        height: 80px;
+
+        right: 3%;
+        bottom: 5%;
+
+        transform: scale(0.8);
+    }
+
+    .wish-section .birthday-cake {
+
+        right: 2%;
+        bottom: 4%;
+
+        transform: scale(0.85);
+    }
+
 }

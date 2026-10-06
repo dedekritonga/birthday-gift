@@ -45,7 +45,7 @@ function checkAnswer() {
         const year = yearInput.value.trim();
 
         if (
-            day === "17" &&
+            day === "07" &&
             month === "10" &&
             year === "2005"
         ) {
@@ -185,8 +185,6 @@ function prepareNextLock() {
         lockTitle.textContent =
             "Satu lagi yang harus kamu ingat...";
 
-        lockDescription.innerHTML =
-
         question.textContent =
             "Siapa yang sering manggil kamu sayangg? 💙";
 
@@ -302,6 +300,10 @@ if (openBtn) {
             opening.style.display = "none";
 
             document.body.classList.remove("locked");
+
+            setupStoryNavigation();
+
+            showStoryPage(0);
 
         }, 1200);
     };
@@ -618,43 +620,25 @@ function displayGallery() {
 
 function showGallery() {
 
-    const gallerySection =
-        document.getElementById(
-            "gallery"
-        );
-
-    if (!gallerySection) {
-        return;
-    }
-
     displayGallery();
 
-    gallerySection.style.display =
-        "flex";
+    const pages = getStoryPages();
 
-    setTimeout(function () {
+    const galleryIndex =
+        pages.findIndex(function (page) {
 
-        gallerySection.scrollIntoView({
-            behavior: "smooth"
+            return page.id === "gallery";
+
         });
 
-    }, 100);
-}
+    if (galleryIndex !== -1) {
 
+        showStoryPage(
+            galleryIndex
+        );
 
-/* =========================
-   GALERI AWALNYA TERSEMBUNYI
-========================= */
+    }
 
-const gallerySection =
-    document.getElementById(
-        "gallery"
-    );
-
-if (gallerySection) {
-
-    gallerySection.style.display =
-        "none";
 }
 
 
@@ -1131,3 +1115,437 @@ if (memoryModal) {
         }
     );
 });
+
+/* =========================
+   PAGE BY PAGE NAVIGATION
+========================= */
+
+let currentStoryPage = 0;
+
+function getStoryPages() {
+
+    return Array.from(
+        document.querySelectorAll(
+            "#mainContent > .story-page"
+        )
+    );
+
+}
+
+function showStoryPage(pageNumber) {
+
+    const pages = getStoryPages();
+
+    if (!pages.length) {
+        return;
+    }
+
+    if (!pages[pageNumber]) {
+        return;
+    }
+
+    pages.forEach(function (page) {
+
+        page.classList.remove(
+            "active-page"
+        );
+
+    });
+
+    currentStoryPage = pageNumber;
+
+    pages[pageNumber].classList.add(
+        "active-page"
+    );
+
+    const progress =
+    document.getElementById(
+        "storyProgress"
+    );
+
+if (progress) {
+
+    const current =
+        String(pageNumber + 1).padStart(
+            2,
+            "0"
+        );
+
+    const total =
+        String(pages.length).padStart(
+            2,
+            "0"
+        );
+
+    progress.textContent =
+        current + " / " + total;
+}
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+        if (pages[pageNumber].id === "flower") {
+
+        createFallingFlowers();
+
+    }
+   createPageDecorations(
+    pages[pageNumber]
+);
+}
+
+function setupStoryNavigation() {
+
+    const pages = getStoryPages();
+
+    if (!pages.length) {
+        return;
+    }
+
+    pages.forEach(function (page) {
+
+        const oldButtons =
+            page.querySelectorAll(
+                ".page-next-btn, .page-back-btn"
+            );
+
+        oldButtons.forEach(function (button) {
+            button.remove();
+        });
+
+    });
+
+    pages.forEach(function (page, index) {
+
+        const buttonContainer =
+            document.createElement("div");
+
+        buttonContainer.className =
+            "page-navigation";
+
+        if (index > 0) {
+
+            const backButton =
+                document.createElement("button");
+
+            backButton.type = "button";
+
+            backButton.className =
+                "page-back-btn";
+
+            backButton.textContent =
+                "← Back";
+
+            backButton.addEventListener(
+                "click",
+                function () {
+
+                    showStoryPage(
+                        index - 1
+                    );
+
+                }
+            );
+
+            buttonContainer.appendChild(
+                backButton
+            );
+        }
+
+        if (index < pages.length - 1) {
+
+            const nextButton =
+                document.createElement("button");
+
+            nextButton.type = "button";
+
+            nextButton.className =
+                "page-next-btn";
+
+            nextButton.textContent =
+                "Next →";
+
+            nextButton.addEventListener(
+                "click",
+                function () {
+
+                    showStoryPage(
+                        index + 1
+                    );
+
+                }
+            );
+
+            buttonContainer.appendChild(
+                nextButton
+            );
+        }
+
+        page.appendChild(
+            buttonContainer
+        );
+
+    });
+
+}
+
+function createFallingFlowers() {
+
+    const container =
+        document.getElementById("fallingFlowers");
+
+    if (!container) {
+        return;
+    }
+
+    container.innerHTML = "";
+
+    const flowers = [
+        "🌸",
+        "🌷",
+        "✿",
+        "❀",
+        "🌼"
+    ];
+
+    for (let i = 0; i < 18; i++) {
+
+        const flower =
+            document.createElement("span");
+
+        flower.className =
+            "falling-flower";
+
+        flower.textContent =
+            flowers[
+                Math.floor(
+                    Math.random() *
+                    flowers.length
+                )
+            ];
+
+        flower.style.left =
+            Math.random() * 100 + "%";
+
+        flower.style.fontSize =
+            (14 + Math.random() * 14) + "px";
+
+        flower.style.animationDuration =
+            (6 + Math.random() * 7) + "s";
+
+        flower.style.animationDelay =
+            (-Math.random() * 8) + "s";
+
+        container.appendChild(
+            flower
+        );
+
+    }
+
+}
+
+function createPageDecorations(page) {
+
+    if (!page) {
+        return;
+    }
+
+    /* =====================================
+       SPARKLES
+    ===================================== */
+
+    let sparkleContainer =
+        page.querySelector(".page-sparkles");
+
+    if (!sparkleContainer) {
+
+        sparkleContainer =
+            document.createElement("div");
+
+        sparkleContainer.className =
+            "page-sparkles";
+
+        page.insertBefore(
+            sparkleContainer,
+            page.firstChild
+        );
+    }
+
+    sparkleContainer.innerHTML = "";
+
+    const sparkleCount = 14;
+
+    for (
+        let i = 0;
+        i < sparkleCount;
+        i++
+    ) {
+
+        const sparkle =
+            document.createElement("span");
+
+        sparkle.className =
+            "page-sparkle";
+
+        sparkle.style.left =
+            Math.random() * 100 + "%";
+
+        sparkle.style.top =
+            Math.random() * 100 + "%";
+
+        sparkle.style.animationDelay =
+            Math.random() * 3 + "s";
+
+        sparkle.style.animationDuration =
+            2.5 +
+            Math.random() * 2 +
+            "s";
+
+        sparkleContainer.appendChild(
+            sparkle
+        );
+    }
+
+
+    /* =====================================
+       HEARTS
+    ===================================== */
+
+    let heartContainer =
+        page.querySelector(".page-hearts");
+
+    if (!heartContainer) {
+
+        heartContainer =
+            document.createElement("div");
+
+        heartContainer.className =
+            "page-hearts";
+
+        page.insertBefore(
+            heartContainer,
+            page.firstChild
+        );
+    }
+
+    heartContainer.innerHTML = "";
+
+    const heartCount =
+        page.id === "love" ||
+        page.id === "wish" ||
+        page.id === "final"
+            ? 8
+            : 4;
+
+    for (
+        let i = 0;
+        i < heartCount;
+        i++
+    ) {
+
+        const heart =
+            document.createElement("span");
+
+        heart.className =
+            "page-heart";
+
+        heart.textContent =
+            Math.random() > 0.5
+                ? "♡"
+                : "♥";
+
+        heart.style.left =
+            Math.random() * 95 + "%";
+
+        heart.style.top =
+            15 +
+            Math.random() * 75 +
+            "%";
+
+        heart.style.animationDelay =
+            Math.random() * 6 + "s";
+
+        heart.style.animationDuration =
+            5 +
+            Math.random() * 4 +
+            "s";
+
+        heartContainer.appendChild(
+            heart
+        );
+    }
+
+
+    /* =====================================
+       BIRTHDAY CAKE
+    ===================================== */
+
+    const cakePages = [
+        "hero",
+        "littleThings",
+        "love",
+        "reasons",
+        "wish",
+        "gift",
+        "final"
+    ];
+
+    if (
+        cakePages.includes(page.id)
+    ) {
+
+        let cake =
+            page.querySelector(
+                ".birthday-cake"
+            );
+
+        if (!cake) {
+
+            cake =
+                document.createElement("div");
+
+            cake.className =
+                "birthday-cake";
+
+            cake.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+            cake.innerHTML = `
+                <div class="cake-glow"></div>
+
+                <div class="candles">
+
+                    <span class="candle">
+                        <span class="flame"></span>
+                    </span>
+
+                    <span class="candle">
+                        <span class="flame"></span>
+                    </span>
+
+                    <span class="candle">
+                        <span class="flame"></span>
+                    </span>
+
+                </div>
+
+                <div class="cake-top"></div>
+
+                <div class="cake-body"></div>
+
+                <div class="cake-decoration">
+                    <span>♡</span>
+                    <span>♡</span>
+                    <span>♡</span>
+                </div>
+            `;
+
+            page.appendChild(cake);
+        }
+    }
+
+}

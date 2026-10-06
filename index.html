@@ -198,7 +198,7 @@
                         </h2>
 
                         <p>
-                            bebee punya sesuatu kecil buat kamu.
+                            bebee punya sesuatu buat sayangg.
                             Ada sedikit cerita, kenangan, dan doa
                             yang bebee simpan di sini.
                         </p>
@@ -236,9 +236,13 @@
 
     <main id="mainContent">
 
+        <div class="story-progress" id="storyProgress">
+    01 / 15
+    </div>
+
         <!-- HERO -->
 
-        <section class="section hero">
+        <section class="section hero story-page">
 
             <div class="hero-orbit orbit-one">✦</div>
             <div class="hero-orbit orbit-two">♡</div>
@@ -282,32 +286,24 @@
             </div>
 
             <div class="birthday-date">
-                <span>17</span>
+                <span>07</span>
                 <small>OCTOBER</small>
                 <span>2005</span>
             </div>
 
             <p class="hero-text">
-                Hari ini bukan cuma tentang bertambahnya umur kamu.
+                Hari ini bukan cuma tentang bertambahnya umur sayangg.
                 Hari ini juga tentang bersyukurnya bebee karena
                 seseorang seperti kamu pernah hadir dan menjadi
                 bagian dari cerita bebee.
             </p>
-
-            <button
-                class="scroll-btn"
-                onclick="scrollToSection('letter')">
-
-                Ada surat buat kamu ↓
-
-            </button>
 
         </section>
 
 
         <!-- SURAT -->
 
-        <section class="section letter-section" id="letter">
+        <section class="section letter-section story-page" id="letter">
 
             <p class="section-label">
                 01 — A LETTER FOR YOU
@@ -326,7 +322,7 @@
                 <p>
                     Selamat ulang tahun yaa Sayangg.
                     Hari ini adalah hari spesial karena tepat pada
-                    tanggal 17 Oktober 2005, lahirlah seseorang yang
+                    tanggal 07 Oktober 2005, lahirlah seseorang yang
                     sekarang menjadi salah satu orang paling berarti
                     buat bebee.
                 </p>
@@ -376,7 +372,7 @@
 
         <!-- OUR STORY -->
 
-        <section class="section story-section" id="story">
+        <section class="section story-section story-page" id="story">
 
             <p class="section-label">
                 02 — OUR LITTLE STORY
@@ -449,7 +445,7 @@
 
         <!-- LITTLE THINGS -->
 
-        <section class="section little-things-section" id="littleThings">
+        <section class="section little-things-section story-page" id="littleThings">
 
             <p class="section-label">
                 03 — LITTLE THINGS I REMEMBER
@@ -531,7 +527,7 @@
 
         <!-- LOVE -->
 
-        <section class="section love-section" id="love">
+        <section class="section love-section story-page" id="love">
 
             <p class="section-label">
                 04 — THINGS I LOVE ABOUT YOU
@@ -645,7 +641,7 @@
 
         <!-- MEMORIES -->
 
-        <section class="section memories-section" id="memories">
+        <section class="section memories-section story-page" id="memories">
 
             <p class="section-label">
                 05 — OUR LITTLE MEMORIES
@@ -691,9 +687,7 @@
 
         <!-- GALLERY -->
 
-        <section
-            class="section gallery-section"
-            id="gallery">
+        <section class="section gallery-section story-page" id="gallery">
 
             <p class="section-label">
                 06 — OUR PHOTO ALBUM
@@ -722,7 +716,7 @@
 
         <!-- WHY YOU -->
 
-        <section class="section reasons-section" id="reasons">
+        <section class="section reasons-section story-page" id="reasons">
 
             <p class="section-label">
                 07 — WHY YOU
@@ -786,7 +780,9 @@
 
         <!-- SPECIAL FLOWER -->
 
-        <section class="section flower-section" id="flower">
+        <section class="section flower-section story-page" id="flower">
+
+             <div class="falling-flowers" id="fallingFlowers"></div>
 
             <div class="flower-content">
 
@@ -842,7 +838,35 @@
 
         <!-- WISH -->
 
-        <section class="section wish-section" id="wish">
+        <section class="section wish-section story-page" id="wish">
+            <div class="birthday-cake" aria-hidden="true">
+
+    <div class="cake-glow"></div>
+
+    <div class="candles">
+        <span class="candle">
+            <span class="flame"></span>
+        </span>
+
+        <span class="candle">
+            <span class="flame"></span>
+        </span>
+
+        <span class="candle">
+            <span class="flame"></span>
+        </span>
+    </div>
+
+    <div class="cake-top"></div>
+    <div class="cake-body"></div>
+
+    <div class="cake-decoration">
+        <span>♡</span>
+        <span>♡</span>
+        <span>♡</span>
+    </div>
+
+</div>
 
             <div class="wish-box">
 
@@ -951,7 +975,7 @@
 
         <!-- FINAL GIFT -->
 
-        <section class="section gift-section" id="gift">
+        <section class="section gift-section story-page" id="gift">
 
             <div class="gift-content">
 
@@ -1006,9 +1030,9 @@
                     </h3>
 
                     <p>
-                        "selamat tiba di usia yang baru",
+                        "selamat tiba di usia yang baru sayangg",
                         semoga hidup selalu menitipkan hal-hal baik di sepanjang jalan sayangg.
-                        semoga setiap langkah yang sayangg tempuh memebawa sayangg lebih dekat pada apa-apa yang selama ini sayangg doakan,
+                        semoga setiap langkah yang sayangg tempuh membawa sayangg lebih dekat pada apa-apa yang selama ini sayangg doakan,
                         teruslah bertumbuh, meski perjalanan sayangg kelak membawa ke tempat-tempat yang baru sayangg kenal.
                         semoga setiap proses yang sayang lalui perlahan membentuk sayangg menjadi seseorang
                         yang kelak sayangg banggakan tanpa harus tergesa-gesa menjadi siapa-siapa.
@@ -1038,7 +1062,7 @@
 
         <!-- FINAL -->
 
-<section class="section final-section" id="final">
+<section class="section final-section story-page" id="final">
 
     <div class="final-stars">
         <span>✦</span>
@@ -1076,7 +1100,7 @@
         </p>
 
         <p>
-            Selamat ulang tahun, Sayangg.
+            Happy Birthday, Sayangg.
         </p>
 
         <h3>
@@ -1139,17 +1163,14 @@
         </div>
 
         <div class="final-date">
-            17 • 10 • 2005
+            07 • 10 • 2005
         </div>
 
     </div>
 
 </section>
 
-        </footer>
-
-    </main>
-
+</main>
 
     <!-- FOTO BESAR -->
 
